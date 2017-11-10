@@ -3,3 +3,6 @@
 ################################################################################
 
 /TypesOfMiddleware/obj
+/TypesOfMiddleware/bower_components
+/TypesOfMiddleware/bin/Debug/netcoreapp2.0
+/.vs

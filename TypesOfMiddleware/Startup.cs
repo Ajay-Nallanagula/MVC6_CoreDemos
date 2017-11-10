@@ -29,6 +29,12 @@ namespace TypesOfMiddleware
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseMiddleware<ErrorMiddleware>();
+            app.UseMiddleware<RequestEditingMiddleware>();
+            app.UseMiddleware<ShortCircuitMiddleware>();
+            app.UseMiddleware<ContentMiddleware>();
+            // app.UseMiddleware<ErrorMiddleware>(); // If we write response middle ware  here the response will be over-ridden , hence it should be at the begining of the call stack as it can evaluate response given by other middlewares and have the latest response available
+            //Request flows from Top to bottom, Response flows from bottom to top
 
             /* if (env.IsDevelopment())
              {
@@ -48,11 +54,7 @@ namespace TypesOfMiddleware
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
             */
-            app.UseMiddleware<ErrorMiddleware>();
-            app.UseMiddleware<RequestEditingMiddleware>();
-            app.UseMiddleware<ShortCircuitMiddleware>();
-            app.UseMiddleware<ContentMiddleware>();
-            // app.UseMiddleware<ErrorMiddleware>(); // If we write response middle ware  here the response will be over-rideen , hence it should be at the begining of the call stack as it can evaluate response given by other middlewares and have the latest response available
+
         }
     }
 }
