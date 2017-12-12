@@ -1,0 +1,18 @@
+﻿
+@model Result
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h2>
+    <b>Controller</b>  :  @Model.Controller <br/>
+    <b>Action</b>  :  @Model.Action<br/>
+    @{
+        if (Model.RouteCustomData.Keys != null && Model.RouteCustomData.Keys.Count > 0)
+        {
+            <b>Route: </b>  <span>@Model.RouteCustomData["id"]</span>
+        }
+    }
+    
+</h2>
+

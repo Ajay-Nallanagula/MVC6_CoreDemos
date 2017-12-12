@@ -6,3 +6,6 @@
 /TypesOfMiddleware/bower_components
 /TypesOfMiddleware/bin/Debug/netcoreapp2.0
 /.vs
+/TestApplicationTemplate
+/RoutingMVC6/bin
+/RoutingMVC6/obj

@@ -11,10 +11,14 @@ namespace TypesOfMiddleware.Infrastructure
     {
         private RequestDelegate nextDelegate;
 
-        //We can additionally pass arguments to ctor, which will help in avoiding duplication of code.
-        public ContentMiddleware(RequestDelegate next )
+        public UptimeService uptimeService { get; }
+
+        //We can additionally pass arguments to ctor, which will help in avoiding duplication of code. checkingfff
+        public ContentMiddleware(RequestDelegate next , UptimeService upTimeSrvc)
         {
             nextDelegate = next;
+            uptimeService = upTimeSrvc;
+            
         }
 
         public async Task Invoke(HttpContext httpContext)
@@ -24,7 +28,7 @@ namespace TypesOfMiddleware.Infrastructure
             if (httpContext.Items["IsContainsMiddleware"] as bool? == true) //Changed as part of RequestEditingMiddleware
             {
                 //Manipulate the response content
-                await httpContext.Response.WriteAsync(this.GetType().ToString());
+                await httpContext.Response.WriteAsync($"this.GetType().ToString(), TimeTaken : {uptimeService.Uptime()}");
             }
             else
             {
