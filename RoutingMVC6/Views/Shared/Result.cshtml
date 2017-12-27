@@ -10,8 +10,12 @@
     @{
         if (Model.RouteCustomData.Keys != null && Model.RouteCustomData.Keys.Count > 0)
         {
-            <b>Route: </b>  <span>@Model.RouteCustomData["id"]</span>
-        }
+            @*<b>Route: </b>  <span>@Model.RouteCustomData["id"]</span>*@
+    foreach (var key in Model.RouteCustomData.Keys)
+    {
+        <b>Route: </b>  <span>@Model.RouteCustomData[key]</span>
+    }
+    }
     }
     
 </h2>

@@ -35,19 +35,22 @@ namespace RoutingMVC6
             //{
             //    await context.Response.WriteAsync("Hello World!");
             //});
-            app.UseMvcWithDefaultRoute();
-            //app.UseMvc(ConfigureRoutes);
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigureRoutes);
         }
 
         private void ConfigureRoutes(IRouteBuilder route)
         {
             //id is Custom Url Segment, with default value as "Defaultvalue"
-            //route.MapRoute(name: "FirstRoute", template: "{controller=Home}/{action=Index}/{id=Defaultvalue}");
+            route.MapRoute(name: "FirstRoute", template: "{controller=Home}/{action=Index}/{id=Defaultvalue}");
             //id in the below route is optional
+            //Catch all route isn't working for some odd reason , will have to do R&D stuff on this 
+           // route.MapRoute(name: "CatchAllRoutes", template: "Home/CatchAllAction/{id?}/{*catchall}");
 
-            route.MapRoute(name: "OptionalParams", template: "{controller=Home}/{action=Index}/{id?}");
+            //route.MapRoute(name: "OptionalParams", template: "{controller=Home}/{action=Index}/{id?}");
 
-            route.MapRoute(name: "OptionalParams", template: "{controller}/{action}/{id?}");
+            //route.MapRoute(name: "OptionalParams", template: "{controller}/{action}/{id?}");
+
 
             //Traditional Way of Defining Route
             /* route.MapRoute(

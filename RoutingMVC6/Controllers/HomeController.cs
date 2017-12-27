@@ -42,5 +42,13 @@ namespace RoutingMVC6.Controllers
             result.RouteCustomData["id"] = String.IsNullOrWhiteSpace(id) ? null : id;
             return View("Result", result);
         }
+
+        public IActionResult CatchAllAction(string id)
+        {
+            var result = new Result { Controller = nameof(HomeController), Action = nameof(ThirdActionMethod) };
+            result.RouteCustomData.Add("id",String.IsNullOrWhiteSpace("id")?null:id);
+            result.RouteCustomData.Add("catchall", RouteData?.Values["catchall"]?.ToString());
+            return View("Result", result);
+        }
     }
 }
