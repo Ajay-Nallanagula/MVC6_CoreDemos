@@ -14,25 +14,25 @@ namespace MVC6DemosUnitTest
             b = 90;
         }
 
-        [TestMethod]
+        [TestCategory("Build"), TestMethod]
         public void AddTest()
         {
             Assert.IsTrue(a+b ==190);
         }
 
-        [TestMethod]
+        [TestCategory("Build"), TestMethod]
         public void SubtractTest()
         {
             Assert.IsTrue(a - b == 10);
         }
 
-        [TestMethod]
+        [TestCategory("Build"), TestMethod]
         public void ProductTest()
         {
             Assert.IsTrue(a * b == 9000);
         }
 
-        [TestMethod]
+        [TestCategory("Build"), TestMethod]
         public void RemainderTest()
         {
             Assert.IsTrue(a%b == 10);
