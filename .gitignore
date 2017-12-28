@@ -9,3 +9,6 @@
 /TestApplicationTemplate
 /RoutingMVC6/bin
 /RoutingMVC6/obj
+/MVC6DemosUnitTest/obj
+/MVC6DemosUnitTest/bin/Debug/netcoreapp2.0
+/.axoCover
