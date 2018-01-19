@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    
+<div class="container">
+
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only" >Email address</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Email address"  style="width:30%!important">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" style="width: 30% !important;">
+        <div style="padding-top: 20px">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 30% !important;" id="btnSignIn">Sign in</button>
+        </div>
+    </form>
+
+</div>
+    
+
+<script>
+    $(document).ready(function() {
+
+
+
+        $("#btnSignIn").click(function (e) {
+            e.preventDefault();
+            //Make Ajax call here
+            var loginModel = {
+                UserName: $("#inputEmail").val(),
+                Password: $("#inputPassword").val()
+            }
+            console.log(loginModel);
+            $.ajax(
+                {
+                    url: "http://localhost:54174/api/Token/CreateToken",
+                    data: loginModel,
+                    type: 'POST',
+                    contentType:"application/json",
+                    success: function (result) {
+                        alert(result);
+                    },
+                    error:function(err) {
+                        console.log(err);
+                    }
+                });
+        });
+    });
+</script>
+</body>
+</html>

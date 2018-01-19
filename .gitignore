@@ -12,3 +12,6 @@
 /MVC6DemosUnitTest/obj
 /MVC6DemosUnitTest/bin/Debug/netcoreapp2.0
 /.axoCover
+/MVC6DemosUnitTest
+/JWTAuthenticationSample/obj
+/JWTAuthenticationSample/bin/Debug/netcoreapp2.0

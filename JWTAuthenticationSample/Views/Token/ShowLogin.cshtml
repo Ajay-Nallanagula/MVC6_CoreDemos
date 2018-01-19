@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" id="divLoginComponent">
+
+    <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" style="width:30%!important">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" style="width: 30% !important;">
+        <div style="padding-top: 20px">
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="width: 30% !important;" id="btnSignIn">Sign in</button>
+        </div>
+    </form>
+
+</div>
+    
+<div class="container" id="divShowBooksComponent"></div>
+ 
+<div>
+<a href="#" id="ancrBackBtn" class="btn-link">Back To Login</a>
+</div>
+
+
+<script>
+        $(document).ready(function () {
+
+
+            $("#divLoginComponent").css("display", "block");
+            $("#divShowBooksComponent").css("display", "none");
+            $("#ancrBackBtn").css("display", "none");
+
+            $("#ancrBackBtn").click(function(evt) {
+                evt.preventDefault();
+                $("#divLoginComponent").css("display", "block");
+                $("#divShowBooksComponent").html('');
+                $("#divShowBooksComponent").css("display", "none");
+                $("#ancrBackBtn").css("display", "none");
+                $("#inputEmail").val('');
+                $("#inputPassword").val('');
+            });
+
+
+
+            $("#btnSignIn").click(function (e) {
+
+                e.preventDefault();
+                var loginModel = {
+                    UserName: $("#inputEmail").val(),
+                    Password: $("#inputPassword").val()
+                }
+                //Generate Token
+                $.ajax(
+                    {
+                        url: "CreateToken",
+                        data: JSON.stringify(loginModel),
+                        type: 'POST',
+                        contentType: "application/json",
+                        success: function (result) {
+                            $("#divLoginComponent").css("display", "none");
+                            gotoBooks(result.token);
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+            });
+
+            function gotoBooks(token) {
+                var auth = "Bearer" + " " + token;
+
+                //Fetch list of Books
+                var ajaxObj = {
+                    url: '@Url.Action("Get","Books")',
+                type: 'GET',
+                contentType: "application/json",
+                success: function (result) {
+                    console.log(result);
+                    debugger;
+                    displayBooks(result, auth);
+                },
+                error: function (obj) {
+                    console.log(obj);
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", auth);
+                }
+            }
+            console.log(ajaxObj);
+
+            $.ajax(ajaxObj);
+        }
+        });
+
+
+    function displayBooks(books, auth) {
+            var ajaxObj = {
+                url: '@Url.Action("ShowBooks", "Books")',
+                data: JSON.stringify(books),
+                type: "POST",
+                contentType: 'application/json',
+                success: function(result) {
+                    console.log(result);
+                    $("#divShowBooksComponent").html(result);
+                    $("#divShowBooksComponent").css("display", "block");
+                    $("#ancrBackBtn").css("display", "block");
+                },
+                error: function (obj) {
+                    console.log(obj);
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Authorization", auth);
+                }
+            }
+            $.ajax(ajaxObj);
+        }
+    </script>
+</body>
+</html>
