@@ -1,0 +1,23 @@
+﻿
+<h2>ROUTE SUCCEEDED</h2>
+@{
+    var month = ViewBag.Month;
+    var weekday = ViewBag.WeekDay;
+    var day = ViewBag.Day?.ToString();
+    <div>
+        @if (!string.IsNullOrWhiteSpace(month))
+        {
+            <h1>Month : @month</h1>
+        }
+        @if (!string.IsNullOrWhiteSpace(weekday))
+        {
+            <h1>Weekday : @weekday</h1>
+        }
+        @if (!string.IsNullOrWhiteSpace(day))
+        {
+            <h1>Day : @day</h1>
+        }
+    </div>
+}
+
+

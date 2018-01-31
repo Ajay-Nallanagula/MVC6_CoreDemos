@@ -8,7 +8,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Constraints;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.DependencyInjection;
+using RoutingMVC6.CustomRoute;
 using Action = Microsoft.Azure.KeyVault.Models.Action;
 
 namespace RoutingMVC6
@@ -19,7 +22,12 @@ namespace RoutingMVC6
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddMvcCore().AddViews();
+            services.Configure<RouteOptions>(options =>
+            {
+                options.ConstraintMap.Add("month", typeof(MonthRouteContraint));
+                options.ConstraintMap.Add("weekday", typeof(WeekDayRouteConstraint));
+            });
+
             services.AddMvc();
         }
 
@@ -41,25 +49,47 @@ namespace RoutingMVC6
 
         private void ConfigureRoutes(IRouteBuilder route)
         {
-            //id is Custom Url Segment, with default value as "Defaultvalue"
-            route.MapRoute(name: "FirstRoute", template: "{controller=Home}/{action=Index}/{id=Defaultvalue}");
-            //id in the below route is optional
-            //Catch all route isn't working for some odd reason , will have to do R&D stuff on this 
-           // route.MapRoute(name: "CatchAllRoutes", template: "Home/CatchAllAction/{id?}/{*catchall}");
+            //Custom Route Constraint
+           /* route.MapRoute(
+                name: "CustRoute",
+                template: "{controller}/{action}/{month?}/{weekday?}/{day?}",
+                defaults: new{controller="RouteTest",action="Index"},
+                constraints: new
+                {
+                    month = new MonthRouteContraint(),
+                    weekday =new WeekDayRouteConstraint() ,
+                    day = new CompositeRouteConstraint(new List<IRouteConstraint>{new IntRouteConstraint(),new RangeRouteConstraint(1,31)})
+                } 
+            );*/
 
-            //route.MapRoute(name: "OptionalParams", template: "{controller=Home}/{action=Index}/{id?}");
+            route.MapRoute(name: "SrtCustRoute",
+                template:
+                "{controller=RouteTest}/{action=Index}/{month:month?}/{weekday:weekday?}/{day:int:range(1,31)?}");
 
-            //route.MapRoute(name: "OptionalParams", template: "{controller}/{action}/{id?}");
+
+            //id is Custom Url Segment, with default value as "Defaultvalue" , id in the below route is optional
+            //route.MapRoute(name: "FirstRoute", template: "{controller=Home}/{action=Index}/{id}"); //=Defaultvalue
 
 
-            //Traditional Way of Defining Route
-            /* route.MapRoute(
-                 name: "TraditionalWay", 
-                 template: "{controller}/{action}",
-                 defaults: new {controller = "Home", action = "Index"}
-                 );
 
-                 */
+
+
+            /* Catch all route isn't working for some odd reason , will have to do R&D stuff on this 
+             route.MapRoute(name: "CatchAllRoutes", template: "Home/CatchAllAction/{id?}/{*catchall}");
+
+             route.MapRoute(name: "OptionalParams", template: "{controller=Home}/{action=Index}/{id?}");
+
+             route.MapRoute(name: "OptionalParams", template: "{controller}/{action}/{id?}");
+
+
+             Traditional Way of Defining Route
+              route.MapRoute(
+                  name: "TraditionalWay", 
+                  template: "{controller}/{action}",
+                  defaults: new {controller = "Home", action = "Index"}
+                  );
+
+                  */
         }
     }
 }
