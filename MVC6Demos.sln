@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWTAuthenticationSample", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvancedRoutingChp16", "AdvancedRoutingChp16\AdvancedRoutingChp16.csproj", "{424E9463-C31C-4725-8373-6525768B92A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTAuthenticationApi", "JWTAuthenticationApi\JWTAuthenticationApi.csproj", "{918A384D-F0CE-491B-B503-F48D2D96B38C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWTAuthenticationApi", "JWTAuthenticationApi\JWTAuthenticationApi.csproj", "{918A384D-F0CE-491B-B503-F48D2D96B38C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionChp18", "DependencyInjectionChp18\DependencyInjectionChp18.csproj", "{5FD969FD-C9A3-4DE8-9405-A8461D17961F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{918A384D-F0CE-491B-B503-F48D2D96B38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{918A384D-F0CE-491B-B503-F48D2D96B38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{918A384D-F0CE-491B-B503-F48D2D96B38C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD969FD-C9A3-4DE8-9405-A8461D17961F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD969FD-C9A3-4DE8-9405-A8461D17961F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD969FD-C9A3-4DE8-9405-A8461D17961F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD969FD-C9A3-4DE8-9405-A8461D17961F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
