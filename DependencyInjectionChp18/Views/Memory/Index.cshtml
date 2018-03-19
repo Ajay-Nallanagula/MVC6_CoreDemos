@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@{
+    var productList = ViewBag.ProductList;
+    if (productList != null)
+    {
+        foreach (var product in productList)
+        {
+            if (string.IsNullOrWhiteSpace(product.Name))
+            {
+                <h3>@product.Name</h3>
+                <br/>
+            }
+
+        }
+    }
+}
+
