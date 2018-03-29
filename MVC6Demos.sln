@@ -17,11 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JWTAuthenticationApi", "JWT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjectionChp18", "DependencyInjectionChp18\DependencyInjectionChp18.csproj", "{5FD969FD-C9A3-4DE8-9405-A8461D17961F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingConfigDemo", "LoggingConfigDemo\LoggingConfigDemo.csproj", "{7BE4C56E-5947-47E0-A382-9488801886C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggingConfigDemo", "LoggingConfigDemo\LoggingConfigDemo.csproj", "{7BE4C56E-5947-47E0-A382-9488801886C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityTestApi", "IdentityTestApi\IdentityTestApi.csproj", "{C437AE44-2779-40F1-9FBC-65912E323AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityTestApi", "IdentityTestApi\IdentityTestApi.csproj", "{C437AE44-2779-40F1-9FBC-65912E323AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcVsMvcCore", "MvcVsMvcCore\MvcVsMvcCore.csproj", "{D5C66F24-1069-43EB-A1A5-B473CF8EC02F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcVsMvcCore", "MvcVsMvcCore\MvcVsMvcCore.csproj", "{D5C66F24-1069-43EB-A1A5-B473CF8EC02F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityOpenIdAuthentication", "IdentityOpenIdAuthentication\IdentityOpenIdAuthentication.csproj", "{73B086E6-60A1-4547-B0D7-CCFCBE4D25D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiDemosChp20", "ApiDemosChp20\ApiDemosChp20.csproj", "{DACB5EEE-E107-4A75-ABE2-D48E502F3F16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{D5C66F24-1069-43EB-A1A5-B473CF8EC02F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5C66F24-1069-43EB-A1A5-B473CF8EC02F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5C66F24-1069-43EB-A1A5-B473CF8EC02F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B086E6-60A1-4547-B0D7-CCFCBE4D25D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B086E6-60A1-4547-B0D7-CCFCBE4D25D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B086E6-60A1-4547-B0D7-CCFCBE4D25D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B086E6-60A1-4547-B0D7-CCFCBE4D25D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DACB5EEE-E107-4A75-ABE2-D48E502F3F16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DACB5EEE-E107-4A75-ABE2-D48E502F3F16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DACB5EEE-E107-4A75-ABE2-D48E502F3F16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DACB5EEE-E107-4A75-ABE2-D48E502F3F16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
