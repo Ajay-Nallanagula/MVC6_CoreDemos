@@ -26,11 +26,15 @@ namespace ApiDemosChp20.Controllers
             {
                 return NotFound();
             }
-            patch.ApplyTo(reservation);
+            patch.Add(x => x.RservationId,id);
+            //patch.ApplyTo(reservation);
             return Ok();
         }
 
         // GET api/values
+       // [HttpGet("{format?}")]
+       // [FormatFilter]
+        //[Produces("application/json","application/xml")]
         [HttpGet]
         public IEnumerable<Reservation> Get()
         {

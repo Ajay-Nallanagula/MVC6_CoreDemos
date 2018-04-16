@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PartialViewDemoMVC.Models.Person>
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "DisplayPerson";
+}
+
+<h2>DisplayPerson</h2>
+
+
+<div>
+    <table class="table-bordered tableBorder">
+        <tr>
+            <th>PersonId</th> 
+            <th>FirstName  </th>
+            <th>LastName   </th>
+            <th>Age        </th>
+            <th>Dob        </th>
+            <th>Gender     </th>
+            <th>LandPhone  </th>
+            <th>Mobile     </th>
+            <th>Address    </th>
+            <th>Experience </th>
+            <th>Nationality</th>
+        </tr>
+        
+        @foreach (var person in Model)
+        {
+            <tr>
+                <td><a href="#" class="lnkClass">@person.PersonId</a></td>
+                <td>@person.FirstName  </td>
+                <td>@person.LastName   </td>
+                <td>@person.Age        </td>
+                <td>@person.Dob        </td>
+                <td>@person.Gender     </td>
+                <td>@person.LandPhone  </td>
+                <td>@person.Mobile     </td>
+                <td>@person.Address    </td>
+                <td>@person.Experience </td>
+                <td>@person.Nationality</td>
+            </tr>
+        }
+
+    </table>
+    
+    
+</div>
+
+<div id="divPersonResult"></div>
+
+
+<script>
+    $(document).ready(function() {
+
+        $(".lnkClass").click(function () { //this.text
+            $.ajax(
+                {
+                    url: '@Url.Action("DisplayIndividualPerson")',
+                    data:{id:this.text},
+                    success: function (result) {
+                        $("#divPersonResult").html('');
+                        $("#divPersonResult").html(result);
+                    },
+                    error:function(ex) {
+                        console.log(ex);
+                    }
+                });
+        });
+    })
+
+</script>
+    
+
+
