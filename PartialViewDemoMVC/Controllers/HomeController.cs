@@ -40,7 +40,7 @@ namespace PartialViewDemoMVC.Controllers
                 {
                     PersonId =1,
                     Address = "SomeJunkValue",
-                    Age = "SomeJunkValue",
+                    Age = "10",
                     Dob = "SomeJunkValue",
                     Experience = "SomeJunkValue",
                     FirstName = "SomeJunkValue",
@@ -54,7 +54,7 @@ namespace PartialViewDemoMVC.Controllers
                 {
                     PersonId =2,
                     Address = "1SomeJunkValue",
-                    Age = "1SomeJunkValue",
+                    Age = "20",
                     Dob = "1SomeJunkValue",
                     Experience = "1SomeJunkValue",
                     FirstName = "1SomeJunkValue",
@@ -68,7 +68,7 @@ namespace PartialViewDemoMVC.Controllers
                 {
                     PersonId =3,
                     Address = "2SomeJunkValue",
-                    Age = "2SomeJunkValue",
+                    Age = "30",
                     Dob = "2SomeJunkValue",
                     Experience = "2SomeJunkValue",
                     FirstName = "2SomeJunkValue",
@@ -82,7 +82,7 @@ namespace PartialViewDemoMVC.Controllers
                 {
                     PersonId =4,
                     Address = "3SomeJunkValue",
-                    Age = "3SomeJunkValue",
+                    Age = "40",
                     Dob = "3SomeJunkValue",
                     Experience = "3SomeJunkValue",
                     FirstName = "3SomeJunkValue",
@@ -96,7 +96,7 @@ namespace PartialViewDemoMVC.Controllers
                 {
                     PersonId =5,
                     Address = "4SomeJunkValue",
-                    Age = "4SomeJunkValue",
+                    Age = "50",
                     Dob = "4SomeJunkValue",
                     Experience = "4SomeJunkValue",
                     FirstName = "4SomeJunkValue",
@@ -110,7 +110,7 @@ namespace PartialViewDemoMVC.Controllers
                 {
                     PersonId =6,
                     Address = "5SomeJunkValue",
-                    Age = "5SomeJunkValue",
+                    Age = "60",
                     Dob = "5SomeJunkValue",
                     Experience = "5SomeJunkValue",
                     FirstName = "5SomeJunkValue",

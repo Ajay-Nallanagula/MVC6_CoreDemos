@@ -46,13 +46,20 @@
     
 </div>
 
+<div id="divTitle"></div>
 <div id="divPersonResult"></div>
 
 
 <script>
     $(document).ready(function() {
 
-        $(".lnkClass").click(function () { //this.text
+        $(".lnkClass").click(function (event) { //this.text
+            var trElem = $(this).closest("tr");
+            var title = trElem.find("td")[1].innerText;
+            var age = trElem.find("td")[3].innerText;
+            if (age >30) {
+                trElem.addClass('rowHighlight'); // .rowHighlight { background-color: cyan;}
+            }
             $.ajax(
                 {
                     url: '@Url.Action("DisplayIndividualPerson")',
@@ -60,6 +67,8 @@
                     success: function (result) {
                         $("#divPersonResult").html('');
                         $("#divPersonResult").html(result);
+                        $("#divTitle").html(title);
+                        trElem.removeClass('rowHighlight');
                     },
                     error:function(ex) {
                         console.log(ex);
